@@ -1,0 +1,15 @@
+[
+  {
+    "tmName": "10:00",
+    "tcsName": "서울TG",
+    "trafficAmout": 100,
+    "carType": "승용차"
+  },
+  {
+    "tmName": "10:10",
+    "tcsName": "안산IC",
+    "trafficAmout": 200,
+    "carType": "화물차"
+  }
+]
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면 생성</title>
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.2.4/css/dx.common.css">
+    <!--<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.2.4/css/dx.material.blue.light.compact.css">-->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.2.4/css/dx.material.blue.light.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+</head>
+<body>
+<h1>운행 통계 조회</h1>
+<table class="table table-bordered table-sm">
+    <div class="filter-area">
+        <label for="startDate">시작일</label>
+        <input type="date" id="startDate"><br>
+
+        <label for="endDate">종료일</label>
+        <input type="date" id="endDate">
+
+        <select id="routeType">
+            <option value="">선택</option>
+            <option value="A01">A01</option>
+            <option value="A02">A02</option>
+        </select>
+
+        <select id="statType">
+            <option value="daily">일별</option>
+            <option value="weekly">주별</option>
+            <option value="monthly">월별</option>
+        </select>
+
+        <button id="searchBtn">조회</button>
+    </div>
+    <div class="chart-filter">
+        <label for="chart">차트 옵션</label>
+
+        <select id="chart">
+            <option value="getIn">승차</option>
+            <option value="getOff">하차</option>
+            <option value="net">순승차</option>
+            <option value="avg">평균</option>
+        </select>
+        <button id="metric">조회</button>
+    </div>
+    <tbody id="statBody"></tbody>
+</table>
+<label>
+    일별: 날짜 기준 집계 <br>
+    주별: 해당 주의 일요일 00:00:00 기준 집계<br>
+    월별: 해당 월의 1일 기준 집계 <br>
+    총 탑승인원: 일별은 각각의 승차 수/주별은 승차 합계<br>
+    순승차: 승차-하차
+</label><br>
+<div id="gridStats"></div>
+<div id="chartContainer"></div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/23.2.4/js/dx.all.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/23.2.4/js/dx-quill.js"></script>
+<script src="/js/stats.js"></script>
+</body>
+</html>
