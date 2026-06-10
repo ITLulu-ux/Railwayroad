@@ -39,7 +39,7 @@ function loadRailwayData() {
 
             railwayData = data;
 
-            drawGrid(railwayData);
+            //drawGrid(railwayData);
             drawChart(railwayData);
 
         })
@@ -47,77 +47,10 @@ function loadRailwayData() {
 
             console.error("철도 데이터 조회 실패", err);
 
-            drawGrid([]);
+            //drawGrid([]);
             drawChart([]);
 
         });
-}
-
-function drawGrid(data) {
-
-    if(grid){
-        grid.dispose();
-    }
-
-    grid = $("#gridContainer").dxDataGrid({
-
-        dataSource: data,
-
-        keyExpr: "stationId",
-
-        showBorders: true,
-        columnAutoWidth: true,
-
-        searchPanel: {
-            visible: true,
-            width: 250,
-            placeholder: "역 검색"
-        },
-
-        filterRow: {
-            visible: true
-        },
-
-        paging: {
-            enabled: false
-        },
-
-        columns: [
-
-            {
-                dataField: "stationId",
-                caption: "번호",
-                width: 80
-            },
-
-            {
-                dataField: "stationName",
-                caption: "역명"
-            },
-
-            {
-                dataField: "region",
-                caption: "지역"
-            },
-
-            {
-                dataField: "highSpeedTrain",
-                caption: "고속열차"
-            },
-
-            {
-                dataField: "regularTrain",
-                caption: "일반열차"
-            },
-
-            {
-                dataField: "subwayLine",
-                caption: "지하철"
-            }
-
-        ]
-
-    }).dxDataGrid("instance");
 }
 
 function drawChart(data) {

@@ -12,4 +12,3 @@ public class AutoMain {
         SpringApplication.run(AutoMain.class, args);
     }
 }
-

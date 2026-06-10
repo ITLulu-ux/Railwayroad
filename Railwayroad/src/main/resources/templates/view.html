@@ -1,10 +1,111 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세 조회</title>
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.2.4/css/dx.common.css">
+    <!--<link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.2.4/css/dx.material.blue.light.compact.css">-->
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/23.2.4/css/dx.material.blue.light.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+
+    <style>
+        body{
+            background:#0d47a1;
+            margin:0;
+            padding:30px;
+            font-family:'Noto Sans KR', sans-serif;
+        }
+
+        .page-header{
+            background:white;
+            border-radius:15px;
+            padding:20px;
+            margin-bottom:20px;
+            text-align:center;
+        }
+
+        .page-header h1{
+            margin:0;
+        }
+
+        #chartContainer{
+            background:white;
+            border-radius:15px;
+            padding:15px;
+        }
+    </style>
 </head>
 <body>
+<h1>철도 상세 조회</h1>
+<table class="table table-bordered table-sm">
+    <div class="filter">
 
+        <select id="station">
+            <option value="S-1">서울역</option>
+            <option value="S-2">용산역</option>
+            <option value="S-3">수원역</option>
+            <option value="S-4">대전역</option>
+            <option value="S-5">익산역</option>
+            <option value="S-6">동대구역</option>
+            <option value="S-7">부산역</option>
+            <option value="S-8">광명역</option>
+            <option value="S-9">천안아산역</option>
+            <option value="S-10">오송역</option>
+        </select>
+
+        <select id="area">
+            <option value="A-1">수도권</option>
+            <option value="A-2">지방</option>
+        </select>
+
+        <select id="fastTrain">
+            <option value="F-1">KTX</option>
+            <option value="F-2">SRT</option>
+        </select>
+
+        <select id="regularTrain">
+            <option value="R-1">무궁화</option>
+            <option value="R-2">ITX</option>
+        </select>
+
+        <select id="subway">
+            <option value="S-1">1호선</option>
+            <option value="S-2">4호선</option>
+            <option value="S-3">경의중앙</option>
+            <option value="S-4">수인분당</option>
+            <option value="S-5">공항철도</option>
+            <option value="S-6">GTX-A</option>
+        </select>
+
+        <button id="searchBtn">조회</button>
+    </div>
+</table>
+    <!--<div class="chart-filter">
+        <label for="chart">차트 옵션</label>
+
+        <select id="chart">
+            <option value="getIn">승차</option>
+            <option value="getOff">하차</option>
+            <option value="net">순승차</option>
+            <option value="avg">평균</option>
+        </select>
+        <button id="metric">조회</button>
+    </div>
+    <tbody id="statBody"></tbody>
+</table>
+<label>
+    일별: 날짜 기준 집계 <br>
+    주별: 해당 주의 일요일 00:00:00 기준 집계<br>
+    월별: 해당 월의 1일 기준 집계 <br>
+    총 탑승인원: 일별은 각각의 승차 수/주별은 승차 합계<br>
+    순승차: 승차-하차
+</label><br>-->
+
+<div id="chartContainer"></div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/23.2.4/js/dx.all.js"></script>
+<script src="https://cdn3.devexpress.com/jslib/23.2.4/js/dx-quill.js"></script>
+<script src="/js/view.js"></script>
 </body>
 </html>
