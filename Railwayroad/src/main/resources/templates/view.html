@@ -38,7 +38,7 @@
 </head>
 <body>
 <h1>철도 상세 조회</h1>
-<table class="table table-bordered table-sm">
+<!--<table class="table table-bordered table-sm">
     <div class="filter">
 
         <select id="station">
@@ -80,28 +80,9 @@
 
         <button id="searchBtn">조회</button>
     </div>
-</table>
-    <!--<div class="chart-filter">
-        <label for="chart">차트 옵션</label>
+</table>-->
 
-        <select id="chart">
-            <option value="getIn">승차</option>
-            <option value="getOff">하차</option>
-            <option value="net">순승차</option>
-            <option value="avg">평균</option>
-        </select>
-        <button id="metric">조회</button>
-    </div>
-    <tbody id="statBody"></tbody>
-</table>
-<label>
-    일별: 날짜 기준 집계 <br>
-    주별: 해당 주의 일요일 00:00:00 기준 집계<br>
-    월별: 해당 월의 1일 기준 집계 <br>
-    총 탑승인원: 일별은 각각의 승차 수/주별은 승차 합계<br>
-    순승차: 승차-하차
-</label><br>-->
-
+<div id="gridStats"></div>
 <div id="chartContainer"></div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn3.devexpress.com/jslib/23.2.4/js/dx.all.js"></script>

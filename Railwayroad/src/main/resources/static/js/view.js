@@ -39,7 +39,7 @@ function loadRailwayData() {
 
             railwayData = data;
 
-            //drawGrid(railwayData);
+            createDataSource(railwayData);
             drawChart(railwayData);
 
         })
@@ -47,11 +47,61 @@ function loadRailwayData() {
 
             console.error("철도 데이터 조회 실패", err);
 
-            //drawGrid([]);
+            createDataSource([]);
             drawChart([]);
 
         });
 }
+
+function createDataSource() {
+    return new DevExpress.data.CustomStore({
+        key: "stationId",
+
+        load: function (loadOptions) {
+
+            if (loadOptions.filter) {
+                console.warn("DevExtreme auto filter removed:", loadOptions.filter);
+                loadOptions.filter = null;
+            }
+            const skip = loadOptions.skip ?? 0;
+            const take = loadOptions.take ?? 30;
+
+            const page = skip / take;
+            const size = take;
+
+            let dateFilterRaw = document.getElementById("area")?.value || "";
+            const val2 = document.getElementById("trainType")?.value || "";
+            const val3 = document.getElementById("subway_line")?.value || "";
+
+            const dateFilter = normalizeDate(dateFilterRaw);
+
+            const params = new URLSearchParams({
+                page,
+                size,
+                dateFilter,
+                val2,
+                val3
+            });
+
+            return fetch(`/list?${params.toString()}`)
+                .then(res => res.json())
+                .then(data => ({
+                    data: data.data,
+                    totalCount: data.totalCount
+                }))
+                .catch(() => ({
+                    data: [],
+                    totalCount: 0
+                }));
+        }
+    });
+}
+
+
+
+
+
+
 
 function drawChart(data) {
 

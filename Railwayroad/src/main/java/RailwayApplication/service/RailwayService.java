@@ -22,4 +22,10 @@ public class RailwayService {
         return railwayMapper.getAllStations(dto);
 
     }
+
+    public List<StationDto> StationFilter(StationDto dto) {
+
+        return railwayMapper.StationFilter(dto);
+
+    }
 }
