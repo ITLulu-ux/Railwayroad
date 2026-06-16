@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function loadRailwayData() {
 
     const region = document.getElementById("region")?.value || "";
+    const regionType = document.getElementById("regionType")?.value || "";
     const trainType = document.getElementById("trainType")?.value || "";
 
     const params = new URLSearchParams();
@@ -22,11 +23,15 @@ function loadRailwayData() {
         params.append("region", region);
     }
 
+    if(regionType){
+        params.append("regionType", regionType);
+    }
+
     if(trainType){
         params.append("trainType", trainType);
     }
 
-    fetch(`/api/stations?${params.toString()}`)
+    fetch(`/api/stations/filter?${params.toString()}`)
         .then(res => {
 
             if(!res.ok){
@@ -103,8 +108,10 @@ function drawGrid(data) {
             },
 
             {
-                dataField: "region",
-                caption: "지역"
+                dataField: "regionType",
+                caption: "권역",
+                filterOperations: ["="],
+                selectedFilterOperation: "="
             },
 
             {

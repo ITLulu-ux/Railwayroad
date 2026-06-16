@@ -12,7 +12,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RailwayApiController {
     private final RailwayService railwayService;
-
     // 1. 전체 조회 API (필터 없을 때나 초기 로딩용)
     @GetMapping("/api/stations")
     public List<StationDto> getStations(StationDto dto) {
@@ -22,6 +21,13 @@ public class RailwayApiController {
     // 2. 필터링 전용 API (그리드의 filterRow나 조건 검색용)
     @GetMapping("/api/stations/filter")
     public List<StationDto> filterStations(StationDto dto) {
+
+        System.out.println("stationName = " + dto.getStationName());
+        System.out.println("regionType = " + dto.getRegionType());
+        System.out.println("highSpeedTrain = " + dto.getHighSpeedTrain());
+        System.out.println("regularTrain = " + dto.getRegularTrain());
+        System.out.println("subwayLine = " + dto.getSubwayLine());
+
         return railwayService.StationFilter(dto);
     }
 }

@@ -9,6 +9,7 @@
         a.station_id AS stationId,
         a.station_name AS stationName,
         a.region AS region,
+        a.region_type AS regionType,
         b.train_type AS highSpeedTrain,
         c.train_type AS regularTrain,
         d.subway_line AS subwayLine
@@ -26,16 +27,41 @@
     </select>
 
     <select id="StationFilter" resultType="RailwayApplication.dto.StationDto">
-    SELECT * FROM stations a
-    WHERE 1=1
-    <if test="a.station_name != null and a.station_name != ''">
-        AND a.station_name LIKE CONCAT('%', #{a.station_name}, '%')
+        SELECT
+        a.station_id AS stationId,
+        a.station_name AS stationName,
+        a.region AS region,
+        a.region_type AS regionType,
+        b.train_type AS highSpeedTrain,
+        c.train_type AS regularTrain,
+        d.subway_line AS subwayLine
+
+        FROM stations a
+
+        LEFT JOIN high_speed_lines b
+        ON a.station_id = b.station_id
+
+        LEFT JOIN regular_lines c
+        ON a.station_id = c.station_id
+
+        LEFT JOIN subway_lines d
+        ON a.station_id = d.station_id
+        WHERE 1=1
+
+    <if test="stationName != null and stationName != ''">
+        AND a.station_name LIKE CONCAT('%', #{stationName}, '%')
     </if>
-    <if test="b.train_type != null and b.train_type != ''">
-        AND b.train_type = #{b.train_type}
+    <if test="regionType != null and regionType != ''">
+        AND a.region_type = #{regionType}
     </if>
-    <if test="d.subway_line == '없음'">
-        AND d.subway_line IS NULL
+    <if test="highSpeedTrain != null and highSpeedTrain != ''">
+        AND b.train_type = #{highSpeedTrain}
+    </if>
+    <if test="regularTrain != null and regularTrain != ''">
+        AND c.train_type = #{regularTrain}
+    </if>
+    <if test="subwayLine != null and subwayLine != ''">
+        AND d.subway_line = #{subwayLine}
     </if>
     </select>
 </mapper>
