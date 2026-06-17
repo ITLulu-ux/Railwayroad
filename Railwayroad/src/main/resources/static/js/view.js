@@ -57,7 +57,7 @@ function initFilterPanel() {
         dataSource: [],
         keyExpr: "stationId",
 
-        filterRow: { visible: true }, // 돋보기 필터 활성화
+        filterRow: { visible: false }, // 돋보기 필터 활성화
         headerFilter: { visible: true },
         showHeaders: true,            // 필터 상단에 이름표(역명, 지역 등) 표시
         showBorders: false,
