@@ -90,7 +90,7 @@ function drawGrid(data) {
         pager: {
             visible: true,
             showPageSizeSelector: true,
-            allowedPageSizes: [10, 20, 50],
+            allowedPageSizes: [10, 20, 50, 100],
             showInfo: true
         },
 

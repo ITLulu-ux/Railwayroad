@@ -62,7 +62,7 @@ function initFilterPanel() {
         showHeaders: true,            // 필터 상단에 이름표(역명, 지역 등) 표시
         showBorders: false,
         loadPanel: { enabled: false },
-        height: 80,                   // 표 본문을 숨기기 위해 높이를 제한하는 트릭
+        height: 80,                   // 얘가 필터로 조회되는 DataGrid 크기
 
         // 💡 디비버(MySQL) 및 DTO 스펙과 필드명을 일치시켜 복구 완료
         columns: [
@@ -101,6 +101,7 @@ function initFilterPanel() {
 // ==========================================
 function initChart(initialData) {
     chartInstance = $("#chartContainer").dxChart({
+        height: 600,      // 얘가 차트 크기
         dataSource: formatChartData(initialData),
         title: "역별 연계 교통수단 확보 현황",
 
