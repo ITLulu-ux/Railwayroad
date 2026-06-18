@@ -4,7 +4,7 @@
 
 기존 인턴십 기간 중 개발했던 철도 조회 시스템을 기반으로 DBMS 마이그레이션 및 UI 개선을 수행한 프로젝트입니다.
 
-기존 프로젝트는 H2 Database와 DevExtreme DataGrid를 사용하여 철도역, 고속열차, 일반열차, 지하철 정보를 조회할 수 있도록 구현되어 있었습니다.
+기존 프로젝트는 H2 Database와 DevExtreme DataGrid를 사용하여 회사 업무용 데이터를 조회할 수 있도록 구현되어 있었습니다.
 
 본 프로젝트에서는 H2 Database 환경을 MySQL(MariaDB) 환경으로 마이그레이션하고, DevExtreme DataGrid 및 Chart 기능을 활용하여 데이터 조회 및 시각화 기능을 개선하였습니다.
 
