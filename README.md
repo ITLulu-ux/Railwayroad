@@ -199,13 +199,15 @@
 
 ## Docker 실행 시
 
-Docker 컨테이너에서 로컬 MariaDB에 접근하기 위해
+Docker 컨테이너에서 로컬 MariaDB에 접근하기 위해 spring.datasource.url을 
+jdbc:mysql://host.docker.internal:3306/railway_db 로 설정하여 테스트하였습니다.
 
-spring.datasource.url을
+---
 
-jdbc:mysql://host.docker.internal:3306/railway_db
+## Docker 적용
 
-로 설정하여 테스트하였습니다.
+Spring Boot 프로젝트를 JAR 파일로 패키징한 후 Docker 이미지로 컨테이너화하였습니다.
+초기에는 application.properties의 DB 주소를 localhost로 설정하여 Docker 컨테이너에서 MariaDB 연결에 실패하였습니다. 원인은 Docker 환경에서 localhost가 컨테이너 자신을 의미하기 때문이었으며, 이를 host.docker.internal로 변경하여 로컬 MariaDB와 정상적으로 연동하였습니다.
 
 ---
 
