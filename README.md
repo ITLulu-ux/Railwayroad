@@ -197,6 +197,18 @@
 
 ---
 
+## Docker 실행 시
+
+Docker 컨테이너에서 로컬 MariaDB에 접근하기 위해
+
+spring.datasource.url을
+
+jdbc:mysql://host.docker.internal:3306/railway_db
+
+로 설정하여 테스트하였습니다.
+
+---
+
 ## 프로젝트 회고
 
 본 프로젝트를 통해 단순 CRUD 구현을 넘어 다음과 같은 경험을 얻을 수 있었습니다.
