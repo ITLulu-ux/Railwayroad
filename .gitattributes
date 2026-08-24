@@ -6,5 +6,9 @@ Railwayroad/src/main/resources/static/css/** linguist-vendored
 Railwayroad/src/main/resources/static/**/*.js linguist-vendored
 Railwayroad/src/main/resources/static/**/*.css linguist-vendored
 
-# 3. 자바 언어 강제 지정
+# 4. html, css를 통계에서 예외
+**.html linguist-vendored
+**.css linguist-vendored
+
+# 5. 자바 언어 강제 지정
 *.java linguist-language=Java
