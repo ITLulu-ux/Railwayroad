@@ -1,2 +1,10 @@
-src/main/resources/static/** linguist-vendored
-*.js linguist-vendored
+# 1. 특정 외부 라이브러리 폴더 전체를 통계에서 제외 (Vendored)
+Railwayroad/src/main/resources/static/js/** linguist-vendored
+Railwayroad/src/main/resources/static/css/** linguist-vendored
+
+# 2. 혹시 모를 모든 static 이하 js, css 파일 예외 처리
+Railwayroad/src/main/resources/static/**/*.js linguist-vendored
+Railwayroad/src/main/resources/static/**/*.css linguist-vendored
+
+# 3. 자바 언어 강제 지정
+*.java linguist-language=Java
