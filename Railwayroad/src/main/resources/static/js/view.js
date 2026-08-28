@@ -57,14 +57,14 @@ function initFilterPanel() {
         dataSource: [],
         keyExpr: "stationId",
 
-        filterRow: { visible: false }, // 돋보기 필터 활성화
+        filterRow: { visible: false }, // 돋보기 필터 비활성화
         headerFilter: { visible: true },
         showHeaders: true,            // 필터 상단에 이름표(역명, 지역 등) 표시
         showBorders: false,
         loadPanel: { enabled: false },
         height: 80,                   // 얘가 필터로 조회되는 DataGrid 크기
 
-        // 💡 디비버(MySQL) 및 DTO 스펙과 필드명을 일치시켜 복구 완료
+        // 디비버(MySQL) 및 DTO 스펙과 필드명을 일치시켜 복구 완료
         columns: [
             { dataField: "stationName", caption: "역명", dataType: "string" },
             { dataField: "regionType", caption: "권역", dataType: "string" },
@@ -73,7 +73,7 @@ function initFilterPanel() {
             { dataField: "subwayLine", caption: "지하철 노선", dataType: "string" }
         ],
 
-        // 💡 사용자가 필터 돋보기 창에 값을 입력할 때마다 실시간 작동
+        // 사용자가 필터 돋보기 창에 값을 입력할 때마다 실시간 작동
         onContentReady: function(e) {
             const component = e.component;
             const filterExpr = component.getCombinedFilter();
@@ -105,13 +105,13 @@ function initChart(initialData) {
         dataSource: formatChartData(initialData),
         title: "역별 연계 교통수단 확보 현황",
 
-        // 💡 면접관에게 칭찬받는 누적 막대 차트(StackedBar) 설정
+        // 누적 막대 차트(StackedBar) 설정
         commonSeriesSettings: {
             argumentField: "stationName",
             type: "stackedBar"
         },
 
-        // 💡 단일 막대를 고속/일반/지하철 영역으로 분할하고 색상 다각화
+        // 단일 막대를 고속/일반/지하철 영역으로 분할하고 색상 다각화
         series: [
             //{ valueField: "regionType", name: "수도권/비수도권", color: "#9d4dff" },
             { valueField: "highSpeedCount", name: "고속열차 (KTX/SRT)", color: "#ff4d4d" },
@@ -123,7 +123,7 @@ function initChart(initialData) {
             title: { text: "역명" }
         },
 
-        // 💡 제3자가 봐도 직관적인 Y축 이름과 격자 범위 정의
+        // Y축 이름과 격자 범위 정의를 직관적으로 설정
         valueAxis: {
             min: 0,
             max: 3,          // 한 역당 최대 수단 종류는 3개이므로 고정
@@ -173,7 +173,7 @@ function formatChartData(rawData) {
             };
         }
 
-        // 💡 쪼개져서 들어오는 중복 행들에서 인프라 존재 여부(1 또는 0)만 추출
+        // 쪼개져서 들어오는 중복 행들에서 인프라 존재 여부(1 또는 0)만 추출
         if (item.highSpeedTrain && item.highSpeedTrain !== '없음') {
             stationMap[name].highSpeedCount = 1;
         }
